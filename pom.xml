@@ -50,45 +50,45 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>io.fabric8</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <version>0.21.0</version>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash;  If using Docker Toolbox (Windows), you must find the IP of your VM. docker-machine ip &ndash;&gt;-->
-<!--                    &lt;!&ndash;<dockerHost>http://192.168.99.100:2375</dockerHost>&ndash;&gt;-->
-<!--                    &lt;!&ndash;  linux &ndash;&gt;-->
-<!--&lt;!&ndash;                    <dockerHost>http://192.168.1.10:2375</dockerHost>&ndash;&gt;-->
-<!--                    &lt;!&ndash;  this is for Mac &ndash;&gt;-->
-<!--                    <dockerHost>unix:///var/run/docker.sock</dockerHost>-->
-<!--                    <verbose>true</verbose>-->
-<!--                    <images>-->
-<!--                        <image>-->
-<!--                            <name>vickyrahadian/library</name>-->
-<!--                            <build>-->
-<!--                                &lt;!&ndash;  TODO better to have this in a subdirectory &ndash;&gt;-->
-<!--                                <dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>-->
-<!--                                &lt;!&ndash;copies artficact to docker build dir in target&ndash;&gt;-->
-<!--                                <assembly>-->
-<!--                                    <descriptorRef>artifact</descriptorRef>-->
-<!--                                </assembly>-->
-<!--                                <tags>-->
-<!--                                    <tag>production</tag>-->
-<!--                                    <tag>${project.version}</tag>-->
-<!--                                </tags>-->
-<!--                            </build>-->
-<!--                        </image>-->
-<!--                    </images>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>build</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.21.0</version>
+                <configuration>
+                    <!--  If using Docker Toolbox (Windows), you must find the IP of your VM. docker-machine ip -->
+                    <!--<dockerHost>http://192.168.99.100:2375</dockerHost>-->
+                    <!--  linux -->
+<!--                    <dockerHost>http://192.168.1.10:2375</dockerHost>-->
+                    <!--  this is for Mac -->
+                    <dockerHost>unix:///var/run/docker.sock</dockerHost>
+                    <verbose>true</verbose>
+                    <images>
+                        <image>
+                            <name>vickyrahadian/library</name>
+                            <build>
+                                <!--  TODO better to have this in a subdirectory -->
+                                <dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
+                                <!--copies artficact to docker build dir in target-->
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <tags>
+                                    <tag>production</tag>
+                                    <tag>${project.version}</tag>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
